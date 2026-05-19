@@ -19,6 +19,7 @@ public class MonsterDrink {
     private String name; 
     private String type; //ultra, normal, tea, alcol, stuff
     private Integer caffeineMg;
+    private Integer caloriesKcal;
     private Boolean sugarFree; //should be already true if it's an ultra version by default
     private Integer rating;
 }

@@ -1,7 +1,7 @@
 package com.dommorgb.monstervault.controller;
 
 import com.dommorgb.monstervault.entity.MonsterDrink;
-import com.dommorgb.monstervault.repository.MonsterDrinkRepository;
+import com.dommorgb.monstervault.service.MonsterDrinkService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,19 +10,19 @@ import java.util.List;
 @RequestMapping("/api/drinks")
 public class MonsterDrinkController {
 
-    private final MonsterDrinkRepository monsterDrinkRepository;
+    private final MonsterDrinkService monsterDrinkService;
 
-    public MonsterDrinkController(MonsterDrinkRepository monsterDrinkRepository) {
-        this.monsterDrinkRepository = monsterDrinkRepository;
+    public MonsterDrinkController(MonsterDrinkService monsterDrinkService) {
+        this.monsterDrinkService = monsterDrinkService;
     }
 
     @GetMapping
     public List<MonsterDrink> getAllDrinks() {
-        return monsterDrinkRepository.findAll();
+        return monsterDrinkService.getAllDrinks();
     }
 
     @PostMapping
     public MonsterDrink createDrink(@RequestBody MonsterDrink monsterDrink) {
-        return monsterDrinkRepository.save(monsterDrink);
+        return monsterDrinkService.createDrink(monsterDrink);
     }
 }
